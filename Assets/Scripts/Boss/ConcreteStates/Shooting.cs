@@ -11,11 +11,6 @@ public class Shooting : BossState
           Instantiate(DustCrusher,  transform.position, Quaternion.identity);
       }
 
-      public override void Leave()
-      {
-       
-      }
-
       public override void Active()
       {
           GetComponent<BossStateMachine>().SetState(StateId.IdleID);

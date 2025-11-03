@@ -10,7 +10,7 @@ public class DustSchrapnel : MonoBehaviour
     private float killtimer = 2;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         killtimer -= Time.deltaTime;
         transform.position += new Vector3( HorSpeed, VerSpeed, 0);

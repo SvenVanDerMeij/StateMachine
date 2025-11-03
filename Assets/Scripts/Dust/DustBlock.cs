@@ -17,11 +17,11 @@ public class DustBlock : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position += new Vector3(CheckLeftRight() ? -0.18f : 0.18f, 0, 0);
+        transform.position += new Vector3(CheckLeftRight() ? -0.45f : 0.45f, 0, 0);
         
-        if (Mathf.Abs(transform.position.x - _player.transform.position.x) < 0.1)
+        if (Mathf.Abs(transform.position.x - _player.transform.position.x) < 0.2)
         {
             Instantiate(Schrapnel1, transform.position, Quaternion.identity);
             Instantiate(Schrapnel2, transform.position, Quaternion.identity);

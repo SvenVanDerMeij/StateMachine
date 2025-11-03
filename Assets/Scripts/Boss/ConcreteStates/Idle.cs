@@ -9,18 +9,11 @@ public class Idle : BossState
     public override void Enter()
     {
         idleTimer = 0;
-        Debug.Log("IdleEnter");
     }
-
-    public override void Leave()
-    {
-        
-    }
+    
 
     public override void Active()
     {
-       
-        Debug.Log(idleTimer);
         idleTimer += Time.deltaTime;
         if (idleTimer >= 1)
         {

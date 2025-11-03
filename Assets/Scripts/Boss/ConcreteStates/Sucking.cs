@@ -13,15 +13,11 @@ public class Sucking : BossState
         _playerrigidbody = _player.GetComponent<Rigidbody2D>();
         SuckingTime = 0;
     }
-
-    public override void Leave()
-    {
-      
-    }
+    
 
     public override void Active()
     {
-        _player.transform.position -= new Vector3((CheckLeftRight() ? -0.03f : 0.03f), 0, 0);
+        _player.transform.position -= new Vector3((CheckLeftRight() ? -0.1f : 0.1f), 0, 0);
         SuckingTime += Time.deltaTime;
         if (SuckingTime >= 2)
         {

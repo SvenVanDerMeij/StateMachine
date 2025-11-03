@@ -6,7 +6,6 @@ using Random = System.Random;
 
 public enum StateId
 {
-    NullStateId,
     IdleID,
     JumpingID,
     SuckingID,
