@@ -7,7 +7,7 @@ using Random = System.Random;
 
 public class Dustman : Bosses
 {
-    private BossStateMachine _stateMachine;
+    
 
 
     void Start()

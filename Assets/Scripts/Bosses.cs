@@ -13,6 +13,7 @@ public enum StateId
 }
 public abstract class Bosses : MonoBehaviour
 {
+    internal BossStateMachine _stateMachine;
     public virtual void SwapState(StateId from)
     {
         Debug.Log(from.ToString());
