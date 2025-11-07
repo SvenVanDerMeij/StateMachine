@@ -15,6 +15,4 @@ public class Shooting : BossState
       {
           GetComponent<BossStateMachine>().SetState(StateId.IdleID);
       }
-
-     
 }

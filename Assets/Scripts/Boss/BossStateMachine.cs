@@ -6,6 +6,8 @@ using TMPro;
 public class BossStateMachine : MonoBehaviour
 {
     private Dictionary<StateId, BossState> _states = new Dictionary<StateId, BossState>();
+    // kijk of ik een transtitions dictionary kan toevoegen
+    
     [SerializeField] TextMeshProUGUI _stateText;
     private BossState _currentState;
 

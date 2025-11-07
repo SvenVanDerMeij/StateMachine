@@ -23,13 +23,10 @@ public class Sucking : BossState
         {
             GetComponent<BossStateMachine>().SetState(StateId.IdleID);
         }
-       
-        
     }
     
     private bool CheckLeftRight()
     {
         return transform.position.x >= _player.transform.position.x;
     }
-    
 }
