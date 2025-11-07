@@ -21,7 +21,7 @@ public class Sucking : BossState
         SuckingTime += Time.deltaTime;
         if (SuckingTime >= 2)
         {
-            GetComponent<BossStateMachine>().SetState(StateId.IdleID);
+            GetComponent<Bosses>().SwapState(StateId.SuckingID);
         }
     }
     

@@ -5,13 +5,9 @@ using UnityEngine;
 
 public abstract class BossState : MonoBehaviour
 {
-    
-    
     public virtual void Enter() {}
     
     public virtual void Leave() {}
 
     public abstract void Active();
-
-
 }

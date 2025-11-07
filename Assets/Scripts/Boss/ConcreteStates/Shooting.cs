@@ -13,6 +13,6 @@ public class Shooting : BossState
 
       public override void Active()
       {
-          GetComponent<BossStateMachine>().SetState(StateId.IdleID);
+          GetComponent<Bosses>().SwapState(StateId.ShootingID);
       }
 }

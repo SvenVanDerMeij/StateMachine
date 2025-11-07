@@ -17,25 +17,10 @@ public class Idle : BossState
         idleTimer += Time.deltaTime;
         if (idleTimer >= 1)
         {
-            RandomState();
+            GetComponent<Bosses>().SwapState(StateId.IdleID);
         }
         
     }
 
-    private void RandomState()
-    {
-        int value = Random.Range(0, 3);
-        Debug.Log(value);
-        if (value == 0)
-        {
-            GetComponent<BossStateMachine>().SetState(StateId.SuckingID);
-        } else if (value == 1)
-        {
-            GetComponent<BossStateMachine>().SetState(StateId.JumpingID);
-        }
-        else
-        {
-            GetComponent<BossStateMachine>().SetState(StateId.ShootingID);
-        }
-    }
+    
 }

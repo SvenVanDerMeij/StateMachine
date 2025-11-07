@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Boss/DustmanShooter.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/Assets/Scripts/Boss/DustmanShooter.cs" />
+              <option name="originalContent" value="&#10;" />
+              <option name="updatedContent" value="// DustmanShooter.cs&#10;using System.Collections;&#10;using System.Collections.Generic;&#10;using UnityEngine;&#10;&#10;// A boss identical to Dustman but after jumping it shoots instead of sucking.&#10;public class DustmanShooter : Bosses&#10;{&#10;    private BossStateMachine _stateMachine;&#10;    void Start()&#10;    {&#10;        _stateMachine = GetComponent&lt;BossStateMachine&gt;();&#10;&#10;        _stateMachine.AddState(&quot;Idle&quot;, GetComponent&lt;Idle&gt;());&#10;        _stateMachine.AddState(&quot;Jumping&quot;, GetComponent&lt;Jumping&gt;());&#10;        _stateMachine.AddState(&quot;Sucking&quot;, GetComponent&lt;Sucking&gt;());&#10;        _stateMachine.AddState(&quot;Shooting&quot;, GetComponent&lt;Shooting&gt;());&#10;&#10;        // DustmanShooter will go to Shooting after Jumping&#10;        _stateMachine.AddTransition(&quot;Jumping&quot;, &quot;Shooting&quot;);&#10;&#10;        _stateMachine.SetState(&quot;Idle&quot;);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Boss/SkullApproach.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/Assets/Scripts/Boss/SkullApproach.cs" />
+              <option name="updatedContent" value="using UnityEngine;&#10;&#10;public class SkullApproach : BossState&#10;{&#10;    public override void Enter() { Debug.Log(&quot;SkullApproach Enter&quot;); }&#10;    public override void Active()&#10;    {&#10;        // after a tick go to SpinAttack for demo purposes&#10;        GetComponent&lt;BossStateMachine&gt;().SetState(&quot;SpinAttack&quot;);&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Boss/SkullSpin.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/Assets/Scripts/Boss/SkullSpin.cs" />
+              <option name="updatedContent" value="using UnityEngine;&#10;&#10;public class SkullSpin : BossState&#10;{&#10;    public override void Enter() { Debug.Log(&quot;SkullSpin Enter&quot;); }&#10;    public override void Active()&#10;    {&#10;        GetComponent&lt;BossStateMachine&gt;().SetState(&quot;Roar&quot;);&#10;    }&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Assets/Scripts/Boss/StateKey.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/Assets/Scripts/Boss/StateKey.cs" />
+              <option name="updatedContent" value="using System;&#10;&#10;// Lightweight key type for boss states. Uses an internal string identifier so&#10;// different bosses can define different state names without colliding.&#10;[Serializable]&#10;public struct StateKey : IEquatable&lt;StateKey&gt;&#10;{&#10;    public string Id;&#10;&#10;    public StateKey(string id)&#10;    {&#10;        Id = id ?? string.Empty;&#10;    }&#10;&#10;    public bool Equals(StateKey other)&#10;    {&#10;        return string.Equals(Id, other.Id);&#10;    }&#10;&#10;    public override bool Equals(object obj)&#10;    {&#10;        return obj is StateKey other &amp;&amp; Equals(other);&#10;    }&#10;&#10;    public override int GetHashCode()&#10;    {&#10;        return Id != null ? Id.GetHashCode() : 0;&#10;    }&#10;&#10;    public override string ToString()&#10;    {&#10;        return Id;&#10;    }&#10;&#10;    public static implicit operator StateKey(string id) =&gt; new StateKey(id);&#10;    public static implicit operator string(StateKey key) =&gt; key.Id;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

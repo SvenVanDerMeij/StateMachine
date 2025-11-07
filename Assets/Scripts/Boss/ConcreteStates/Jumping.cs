@@ -32,13 +32,7 @@ public class Jumping : BossState
     public override void Active()
     {
         
-
-        
-            
     }
-
-    
-
     private bool CheckLeftRight()
     {
         //Vector2Distance.
@@ -49,6 +43,6 @@ public class Jumping : BossState
     {
         if (!collision.gameObject.CompareTag("Ground")) return;
         if (!airborne) return;
-        GetComponent<BossStateMachine>().SetState(StateId.SuckingID);
+        GetComponent<Bosses>().SwapState(StateId.JumpingID);
     }
 }
