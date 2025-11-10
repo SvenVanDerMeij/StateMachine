@@ -14,25 +14,12 @@ public class Skullman : Bosses
         _stateMachine.AddState(StateId.BarrierID, GetComponent<Barrier>());
         _stateMachine.AddState(StateId.ShootingID, GetComponent<Shooting>());
         _stateMachine.boss = this;
+        _stateMachine.AddTransition(StateId.IdleID, StateId.ShootingID);
+        _stateMachine.AddTransition(StateId.BarrierID, StateId.IdleID);
+        _stateMachine.AddTransition(StateId.ShootingID, StateId.JumpingID);
+        _stateMachine.AddTransition(StateId.JumpingID, StateId.BarrierID);
 
         _stateMachine.SetState(StateId.IdleID);
     }
-    public override void SwapState(StateId from)
-    {
-        if (from == StateId.IdleID)
-        {
-           _stateMachine.SetState(StateId.ShootingID);
-        }
-        else if (from == StateId.BarrierID)
-        {
-            _stateMachine.SetState(StateId.IdleID);
-        }
-        else if (from == StateId.ShootingID)
-        {
-            _stateMachine.SetState(StateId.JumpingID);
-        }
-        else if (from == StateId.JumpingID)
-            _stateMachine.SetState(StateId.BarrierID);
-    }
-
+    
 }

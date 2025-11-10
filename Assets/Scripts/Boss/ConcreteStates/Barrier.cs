@@ -19,7 +19,7 @@ public class Barrier : BossState
         
         if (idleTimer >= 1)
         {
-            GetComponent<Bosses>().SwapState(StateId.BarrierID);
+            GetComponent<BossStateMachine>().SwapState(StateId.BarrierID);
         }
         
     }

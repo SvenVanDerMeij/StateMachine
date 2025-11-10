@@ -9,13 +9,11 @@ public enum StateId
     JumpingID,
     SuckingID,
     ShootingID,
-    BarrierID
+    BarrierID,
+    RandomID
 }
 public abstract class Bosses : MonoBehaviour
 {
     internal BossStateMachine _stateMachine;
-    public virtual void SwapState(StateId from)
-    {
-        Debug.Log(from.ToString());
-    }
+    
 }

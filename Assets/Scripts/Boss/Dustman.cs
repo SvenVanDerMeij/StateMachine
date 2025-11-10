@@ -1,15 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = System.Random;
 
 
 public class Dustman : Bosses
 {
-    
-
-
     void Start()
     {
      _stateMachine = GetComponent<BossStateMachine>();
@@ -17,42 +15,15 @@ public class Dustman : Bosses
      _stateMachine.AddState(StateId.JumpingID, GetComponent<Jumping>());
      _stateMachine.AddState(StateId.SuckingID, GetComponent<Sucking>());
      _stateMachine.AddState(StateId.ShootingID, GetComponent<Shooting>());
+     _stateMachine.AddState(StateId.RandomID, GetComponent<RandomizeState>());
      _stateMachine.boss = this;
-
+     _stateMachine.AddTransition(StateId.IdleID, StateId.RandomID);
+     _stateMachine.AddTransition(StateId.JumpingID, StateId.IdleID);
+     _stateMachine.AddTransition(StateId.SuckingID, StateId.IdleID);
+     _stateMachine.AddTransition(StateId.ShootingID, StateId.IdleID);
+     _stateMachine.randoms.Add(StateId.ShootingID);
+     _stateMachine.randoms.Add(StateId.SuckingID);
+     _stateMachine.randoms.Add(StateId.JumpingID);
      _stateMachine.SetState(StateId.IdleID);
-    }
-    public override void SwapState(StateId from)
-    {
-        if (from == StateId.IdleID)
-        {
-            RandomState();
-        }
-        else if (from == StateId.SuckingID)
-        {
-            _stateMachine.SetState(StateId.IdleID);
-        }
-        else if (from == StateId.ShootingID)
-        {
-            _stateMachine.SetState(StateId.IdleID);
-        }
-        else if (from == StateId.JumpingID)
-        _stateMachine.SetState(StateId.SuckingID);
-    }
-    
-    private void RandomState()
-    {
-        int value = UnityEngine.Random.Range(0, 3);
-        Debug.Log(value);
-        if (value == 0)
-        {
-            GetComponent<BossStateMachine>().SetState(StateId.SuckingID);
-        } else if (value == 1)
-        {
-            GetComponent<BossStateMachine>().SetState(StateId.JumpingID);
-        }
-        else
-        {
-            GetComponent<BossStateMachine>().SetState(StateId.ShootingID);
-        }
     }
 }

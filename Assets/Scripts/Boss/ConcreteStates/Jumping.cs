@@ -43,6 +43,6 @@ public class Jumping : BossState
     {
         if (!collision.gameObject.CompareTag("Ground")) return;
         if (!airborne) return;
-        GetComponent<Bosses>().SwapState(StateId.JumpingID);
+        GetComponent<BossStateMachine>().SwapState(StateId.JumpingID);
     }
 }
