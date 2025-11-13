@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BossStateMachine : MonoBehaviour
 {
 
     public Bosses boss;
     private Dictionary<StateId, BossState> _states = new Dictionary<StateId, BossState>();
-    // kijk of ik een transtitions dictionary kan toevoegen
+    [SerializeField] private GameObject[] Buttons;
     private Dictionary<StateId, StateId> _transitions = new Dictionary<StateId, StateId>();
     public List<StateId> randoms;    
     [SerializeField] TextMeshProUGUI _stateText;
@@ -27,6 +28,12 @@ public class BossStateMachine : MonoBehaviour
 
     public void SetState(StateId stateId)
     {
+        for (int i = 0; i < Buttons.Length; i++)
+        {
+            Buttons[i].GetComponent<Image>().color = Color.black;
+        }
+        
+        
         if(!_states.ContainsKey(stateId))
             return;
 
@@ -34,7 +41,9 @@ public class BossStateMachine : MonoBehaviour
             _currentState.Leave();
         
         _currentState = _states[stateId];
-        
+        if (_currentState.stateButton == null)
+            return;
+        _currentState.stateButton.GetComponent<Image>().color = Color.green;
         _currentState.Enter();
 
         if (_stateText != null)
@@ -66,5 +75,30 @@ public class BossStateMachine : MonoBehaviour
     {
         int value = UnityEngine.Random.Range(0, randoms.Count);
         SetState(randoms[value]);
+    }
+
+    public void SetIdle()
+    {
+        SetState(StateId.IdleID);
+    }
+    
+    public void SetShoot()
+    {
+        SetState(StateId.ShootingID);
+    }
+    
+    public void SetSuck()
+    {
+        SetState(StateId.SuckingID);
+    }
+    
+    public void SetJump()
+    {
+        SetState(StateId.JumpingID);
+    }
+
+    public void SetBarrier()
+    {
+        SetState(StateId.BarrierID);
     }
 }

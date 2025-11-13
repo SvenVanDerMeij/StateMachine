@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: a68fda6dfb249994e8edee90d4b4df99
+  - enabled: 1
+    path: Assets/Scenes/DustFight.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SkullFight.unity
+    guid: 5969d8c9bbf9d61448e3db244c24daf8
   m_configObjects: {}

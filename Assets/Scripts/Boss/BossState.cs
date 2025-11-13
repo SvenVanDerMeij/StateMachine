@@ -5,6 +5,9 @@ using UnityEngine;
 
 public abstract class BossState : MonoBehaviour
 {
+
+    [SerializeField] public GameObject stateButton;
+    
     public virtual void Enter() {}
     
     public virtual void Leave() {}
